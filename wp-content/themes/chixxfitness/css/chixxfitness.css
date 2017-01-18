@@ -1,0 +1,455 @@
+.container-fluid {
+  width: 90%;
+  margin-left: 5%;
+}
+body {
+  display: flex;
+  font-family: 'Droid Sans', sans-serif;
+  background-color: #fff;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+h1, h2, h3 {
+  margin-top: 0;
+}
+nav {
+  box-shadow: none;
+}
+.navigation a {
+  color: #fff;
+}
+.navigation {
+  margin-bottom: 30px;
+}
+.vedette {
+  color: #000;
+  font-family: 'BenchNine', sans-serif;
+  text-align: center !important;
+  margin: 40px 0 40px 0;
+  text-transform: uppercase;
+  font-size: 2.4em;
+}
+#vedette2 {
+  font-family: 'BenchNine', sans-serif;
+  text-align: center !important;
+  margin: 0;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 2.4em;
+  padding-top: 1em;
+}
+.taboola-pub {
+  margin-top: 40px;
+}
+.taboola-pub .decouvrez {
+  font-family: 'BenchNine', sans-serif;
+}
+.taboola-pub h3 {
+  color: #000;
+  text-transform: uppercase;
+  font-size: 2em;
+  position: relative;
+  text-align: left;
+}
+.taboola-pub h3 span {
+  background: #fff;
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+}
+.taboola-pub h3:before {
+  background: #000;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  width: 98%;
+}
+.taboola-pub h3:before {
+  left: 0;
+}
+.crop {
+  height: 0;
+  padding-bottom: 90%;
+  overflow: hidden;
+}
+.crop-resume {
+  height: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+}
+.flex {
+  display: flex;
+}
+p {
+  margin-top: 0;
+}
+.card-content {
+  padding: 0 2em;
+  line-height: 1.5;
+}
+.card-title {
+  margin-bottom: 0;
+}
+.views {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.date {
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  color: #fff;
+  height: auto;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  padding: 0.5em;
+}
+img:hover {
+  filter: brightness(50%);
+}
+.lastNews {
+  background-color: transparent;
+  box-shadow: none;
+}
+.lastNews a {
+  color: #fff;
+}
+.logo-wrap {
+  text-align: left;
+}
+.card-content {
+  box-shadow: none;
+  border: none;
+}
+.card {
+  border: none;
+}
+.card span {
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+.card h4 {
+  padding: 5px 0 0 20px;
+  position: absolute;
+  font-size: 2.28rem;
+  line-height: 110%;
+  margin: 1.14rem 0 0.912rem 0;
+  top: 0;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+.card h4 a {
+  color: #000;
+}
+.news h3 {
+  color: #000;
+  text-transform: uppercase;
+  font-size: 2em;
+  position: relative;
+  text-align: left;
+}
+.news h3 span {
+  background: #fff;
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+}
+.news h3:before {
+  background: #000;
+  content: "";
+  display: block;
+  height: 3px;
+  position: absolute;
+  top: 45%;
+  width: 100%;
+}
+.news h3:before {
+  left: 0;
+}
+.singleNews .views-single {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  color: #fff;
+  padding: 10px;
+  z-index: 100;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+.singleNews .views-single img {
+  padding-right: 5px;
+}
+.singleNews .publish-date {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  color: #fff;
+  padding: 10px;
+  z-index: 100;
+}
+.singleNews .card, .singleNews .card-content, .singleNews .card-image {
+  box-shadow: 0 !important;
+}
+.singleNews span {
+  color: #000;
+  position: absolute;
+  height: 25%;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+.singleNews a {
+  color: #fff;
+}
+#single-title a {
+  font-size: 3.5vh;
+}
+.ad-header {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+.ad-side {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+}
+.ad-side img {
+  padding-top: 2rem;
+}
+body, button, input, select, textarea {
+  line-height: 1;
+}
+.brand-logo {
+  z-index: 10;
+  font-size: 3rem !important;
+  font-family: 'BenchNine', sans-serif;
+  color: #c10905 !important;
+}
+.site-header {
+  background-color: #000;
+}
+.site-header .row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.site-header img {
+  width: 70%;
+}
+.site-header nav {
+  background-color: #000;
+}
+.site-header nav ul li {
+  text-align: center;
+}
+.site-header nav ul {
+  float: right;
+}
+.site-header nav .menu-item-type-taxonomy {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+}
+.site-header nav .sub-menu {
+  margin-top: 2.5em;
+}
+.site-header nav a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2vw;
+  font-family: 'BenchNine', sans-serif;
+}
+.sub-menu li a {
+  font-size: 1.4vw;
+}
+.sub-menu li a:hover {
+  background-color: #fff;
+  color: #000;
+}
+nav .sub-menu {
+  position: absolute;
+  min-width: 115px;
+  display: none;
+  transition: all 0.3s;
+  background-color: #ee6e73;
+  z-index: 1;
+}
+nav .sub-menu li {
+  white-space: nowrap;
+  float: none;
+}
+li.menu-item-has-children:hover > .sub-menu {
+  display: block;
+}
+#site-navigation ul li.current-menu-item > a {
+  text-decoration: underline;
+}
+.main-navigation {
+  clear: both;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+}
+.main-navigation ul {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+.main-navigation li {
+  float: left;
+  position: relative;
+}
+.main-navigation a {
+  display: block;
+  text-decoration: none;
+}
+.main-navigation ul ul {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  float: left;
+  position: absolute;
+  top: 1.5em;
+  left: -999em;
+  z-index: 99999;
+}
+.main-navigation ul ul ul {
+  left: -999em;
+  top: 0;
+}
+.main-navigation ul ul a {
+  width: 200px;
+}
+.link_one::after {
+  content: '';
+  height: 50%;
+  width: 1px;
+  position: absolute;
+  right: 0;
+  top: 25%;
+  background-color: #fff;
+}
+.link_two::after {
+  content: '';
+  height: 50%;
+  width: 1px;
+  position: absolute;
+  right: 0;
+  top: 25%;
+  background-color: #fff;
+}
+.main-navigation ul li:hover > ul, .main-navigation ul li.focus > ul {
+  left: auto;
+}
+.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
+  left: 100%;
+}
+/* Custom menu. */
+.nav-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social-icon {
+  display: flex;
+  justify-content: flex-end;
+}
+a.btn.btn-primary.btn-sm {
+  background-color: #000;
+  font-size: 3vw;
+}
+.close-menu {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: -webkit-center;
+  width: 10%;
+}
+.close-menu img {
+  margin-top: 50px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 900px) {
+  .site-header nav a {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 3.4vh;
+    font-family: 'BenchNine', sans-serif;
+  }
+  .sub-menu li a {
+    font-size: 2.4vh;
+  }
+}
+@media (max-width: 600px) {
+  a.btn.btn-primary.btn-sm {
+    background-color: #000;
+    font-size: 4vh;
+  }
+}
+@media (max-width: 900px) {
+  .site-header nav a {
+    font-size: 1.8em;
+  }
+}
+@media screen and (min-width: 37.5em) {
+  .main-navigation ul {
+    display: block;
+  }
+}
+.site-main .comment-navigation, .site-main .posts-navigation, .site-main .post-navigation {
+  margin: 0 0 1.5em;
+  overflow: hidden;
+}
+.comment-navigation .nav-previous, .posts-navigation .nav-previous, .post-navigation .nav-previous {
+  float: left;
+  width: 50%;
+}
+.comment-navigation .nav-next, .posts-navigation .nav-next, .post-navigation .nav-next {
+  float: right;
+  text-align: right;
+  width: 50%;
+}
+@media (max-width: 400px) {
+  .site-header nav a {
+    font-size: 1em;
+  }
+  .fold.open, .drawer-right.fold.open {
+    width: 100%;
+  }
+  #vedette {
+    font-size: 1.8em;
+  }
+  #vedette2 {
+    font-size: 1.8em;
+  }
+  .taboola-pub .decouvrez {
+    font-size: 1.4em;
+  }
+}
+.social {
+  display: flex;
+  align-items: center;
+}
+.mashsb-stretched .mashsb-buttons {
+  width: 70%;
+}
+.mashicon-facebook {
+  background-color: #000;
+}
+@media (max-width: 900px) {
+  .site-header nav a {
+    font-size: 1.8em;
+  }
+}
