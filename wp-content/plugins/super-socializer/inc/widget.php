@@ -40,7 +40,7 @@ class TheChampLoginWidget extends WP_Widget {
 			echo "</div><div style='float:left; margin-left:10px'>";
 			echo str_replace('-', ' ', $userInfo -> user_login);
 			do_action('the_champ_login_widget_hook', $userInfo -> user_login);
-			echo '<br/><a href="' . wp_logout_url(home_url()) . '">' .__('Log Out', 'Super-Socializer') . '</a></div></div>';
+			echo '<br/><a href="' . wp_logout_url(esc_url(home_url())) . '">' .__('Log Out', 'Super-Socializer') . '</a></div></div>';
 		}
 		echo '<div style="clear:both"></div>';
 		if( !empty( $instance['after_widget_content'] ) ){ 
@@ -123,7 +123,7 @@ class TheChampSharingWidget extends WP_Widget {
 		}elseif(isset($instance['target_url'])){
 			if($instance['target_url'] == 'default'){
 				if(is_home()){
-					$sharingUrl = home_url();
+					$sharingUrl = esc_url(home_url());
 					$postId = 0;
 				}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 					$sharingUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
@@ -133,7 +133,7 @@ class TheChampSharingWidget extends WP_Widget {
 					$sharingUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 				}
 			}elseif($instance['target_url'] == 'homepage'){
-				$sharingUrl = home_url();
+				$sharingUrl = esc_url(home_url());
 				$postId = 0;
 			}elseif($instance['target_url'] == 'custom'){
 				$sharingUrl = isset($instance['target_url_custom']) ? trim($instance['target_url_custom']) : get_permalink($post->ID);
@@ -285,7 +285,7 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 		}elseif(isset($instance['target_url'])){
 			if($instance['target_url'] == 'default'){
 				if(is_home()){
-					$sharingUrl = home_url();
+					$sharingUrl = esc_url(home_url());
 					$postId = 0;
 				}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 					$sharingUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
@@ -295,7 +295,7 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 					$sharingUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 				}
 			}elseif($instance['target_url'] == 'homepage'){
-				$sharingUrl = home_url();
+				$sharingUrl = esc_url(home_url());
 				$postId = 0;
 			}elseif($instance['target_url'] == 'custom'){
 				$sharingUrl = isset($instance['target_url_custom']) ? trim($instance['target_url_custom']) : get_permalink($post->ID);
@@ -462,7 +462,7 @@ class TheChampCounterWidget extends WP_Widget {
 		}elseif(isset($instance['target_url'])){
 			if($instance['target_url'] == 'default'){
 				if(is_home()){
-					$counterUrl = home_url();
+					$counterUrl = esc_url(home_url());
 					$postId = 0;
 				}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 					$counterUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
@@ -472,7 +472,7 @@ class TheChampCounterWidget extends WP_Widget {
 					$counterUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 				}
 			}elseif($instance['target_url'] == 'homepage'){
-				$counterUrl = home_url();
+				$counterUrl = esc_url(home_url());
 				$postId = 0;
 			}elseif($instance['target_url'] == 'custom'){
 				$counterUrl = isset($instance['target_url_custom']) ? trim($instance['target_url_custom']) : get_permalink($post->ID);
@@ -606,7 +606,7 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 		}elseif(isset($instance['target_url'])){
 			if($instance['target_url'] == 'default'){
 				if(is_home()){
-					$counterUrl = home_url();
+					$counterUrl = esc_url(home_url());
 					$postId = 0;
 				}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 					$counterUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
@@ -616,7 +616,7 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 					$counterUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 				}
 			}elseif($instance['target_url'] == 'homepage'){
-				$counterUrl = home_url();
+				$counterUrl = esc_url(home_url());
 				$postId = 0;
 			}elseif($instance['target_url'] == 'custom'){
 				$counterUrl = isset($instance['target_url_custom']) ? trim($instance['target_url_custom']) : get_permalink($post->ID);

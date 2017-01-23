@@ -1,10 +1,10 @@
 ﻿=== Super Socializer ===
 Contributors: Heateor, the_champ, Hungarian Translator: László Tavaszi http://kerekmese.hu, Chinese Translator: Alex Li plpkj.com, Portuguese Translator: Paulo Purkyt https://www.linkedin.com/in/ppurkyt, Italian Translator: FG3D (Freedom's Gate) https://fg3d.net, Spanish translator: Ignacio Iglesias http://trespies.com, Arabic Translator: http://www.ArabsSM.com, Russian/Ukrainian Translator: Nicholas Lagunov
 Donate link: https://www.heateor.com/donate?action=Super+Socializer
-Tags: the champ, champ, social login, social sharing, social commenting, social comments, social plugin, buddypress, bbpress, social share, comments, share post, user profile data, social analytics, online identity, social profile storage, id provider, single sign-on, social media tools, free social login, post to social networks, social authentication, social app, connect, capture social data, social sign-in, signin, sign up, signup, social connect, facebook login, twitter login, google login, google+ login, linkedin login, yahoo, vkontakte, instagram, reddit, digg, stumbleupon, delicious, float it, tumblr, social network
+Tags: social login, social share, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media, facebook login
 Requires at least: 2.5.0
-Tested up to: 4.7
-Stable tag: 7.8.9
+Tested up to: 4.7.1
+Stable tag: 7.8.11
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share and Social Comments at your website
@@ -204,6 +204,14 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.8.11 =
+* [Improvement] Performance improvement
+* [Improvement] Improved Spanish translation
+
+= 7.8.10 =
+* [Bugfix] Fixed XSS vulnerability
+* [Improvement] Using class names 'the_champ_sharing_title' and 'the_champ_social_login_title' for title text of Social Sharing and Social Login shortcodes
+
 = 7.8.9 =
 * [Bugfix] Google Login was capturing the profile data of first account if they were logged into multiple Google accounts
 * [Improvement] Compatibility improvement with <a href="https://www.heateor.com/social-login-mycred-integration/" target="_blank">Social Login myCRED Integration</a> add-on
@@ -1113,3 +1121,11 @@ Yes, we can help you with it. Just drop an email at support@heateor.com
 = 7.8.9 =
 * [Bugfix] Google Login was capturing the profile data of first account if they were logged into multiple Google accounts
 * [Improvement] Compatibility improvement with <a href="https://www.heateor.com/social-login-mycred-integration/" target="_blank">Social Login myCRED Integration</a> add-on
+
+= 7.8.10 =
+* [Bugfix] Fixed XSS vulnerability
+* [Improvement] Using class names 'the_champ_sharing_title' and 'the_champ_social_login_title' for title text of Social Sharing and Social Login shortcodes
+
+= 7.8.11 =
+* [Improvement] Performance improvement
+* [Improvement] Improved Spanish translation

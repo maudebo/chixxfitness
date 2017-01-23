@@ -1018,11 +1018,11 @@
 							<td>
 							<input id="the_champ_newsharecounts" name="the_champ_sharing[tweet_count_service]" type="radio" <?php echo $tweetCountService == 'newsharecounts' ? 'checked = "checked"' : '';?> value="newsharecounts" /><label for="the_champ_newsharecounts"><?php echo sprintf( __( 'Use <a href="%s" target="_blank">NewShareCounts</a> to show Twitter share counts', 'Super-Socializer'), 'http://newsharecounts.com' ) ?></label>
 							<br/>
-							<span class="the_champ_help_content" style="display:block"><?php echo sprintf( __( 'For this to work, you have to enter your website url %s and sign in using Twitter at <a href="%s" target="_blank">their website</a>', 'Super-Socializer'), home_url(), 'http://newsharecounts.com' ) ?></span>
+							<span class="the_champ_help_content" style="display:block"><?php echo sprintf( __( 'For this to work, you have to enter your website url %s and sign in using Twitter at <a href="%s" target="_blank">their website</a>', 'Super-Socializer'), esc_url(home_url()), 'http://newsharecounts.com' ) ?></span>
 							<br/>
 							<input id="the_champ_opensharecount" name="the_champ_sharing[tweet_count_service]" type="radio" <?php echo $tweetCountService == 'opensharecount' ? 'checked = "checked"' : '';?> value="opensharecount" /><label for="the_champ_opensharecount"><?php echo sprintf( __( 'Use <a href="%s" target="_blank">OpenShareCount</a> to show Twitter share counts', 'Super-Socializer'), 'http://opensharecount.com' ) ?></label>
 							<br/>
-							<span class="the_champ_help_content" style="display:block"><?php echo sprintf( __( 'For this to work, you have to sign up and register your website url %s at <a href="%s" target="_blank">their website</a>', 'Super-Socializer'), home_url(), 'http://opensharecount.com' ) ?></span>
+							<span class="the_champ_help_content" style="display:block"><?php echo sprintf( __( 'For this to work, you have to sign up and register your website url %s at <a href="%s" target="_blank">their website</a>', 'Super-Socializer'), esc_url(home_url()), 'http://opensharecount.com' ) ?></span>
 							</td>
 						</tr>
 
@@ -1431,11 +1431,11 @@
 							<td>
 							<input id="the_champ_vertical_newsharecounts" name="the_champ_sharing[vertical_tweet_count_service]" type="radio" <?php echo $tweetCountService == 'newsharecounts' ? 'checked = "checked"' : '';?> value="newsharecounts" /><label for="the_champ_vertical_newsharecounts"><?php echo sprintf( __( 'Use <a href="%s" target="_blank">NewShareCounts</a> to show Twitter share counts', 'Super-Socializer'), 'http://newsharecounts.com' ) ?></label>
 							<br/>
-							<span class="the_champ_help_content" style="display:block"><?php echo sprintf( __( 'For this to work, you have to enter your website url %s and sign in using Twitter at <a href="%s" target="_blank">their website</a>', 'Super-Socializer'), home_url(), 'http://newsharecounts.com' ) ?></span>
+							<span class="the_champ_help_content" style="display:block"><?php echo sprintf( __( 'For this to work, you have to enter your website url %s and sign in using Twitter at <a href="%s" target="_blank">their website</a>', 'Super-Socializer'), esc_url(home_url()), 'http://newsharecounts.com' ) ?></span>
 							<br/>
 							<input id="the_champ_vertical_opensharecount" name="the_champ_sharing[vertical_tweet_count_service]" type="radio" <?php echo $tweetCountService == 'opensharecount' ? 'checked = "checked"' : '';?> value="opensharecount" /><label for="the_champ_vertical_opensharecount"><?php echo sprintf( __( 'Use <a href="%s" target="_blank">OpenShareCount</a> to show Twitter share counts', 'Super-Socializer'), 'http://opensharecount.com' ) ?></label>
 							<br/>
-							<span class="the_champ_help_content" style="display:block"><?php echo sprintf( __( 'For this to work, you have to sign up and register your website url %s at <a href="%s" target="_blank">their website</a>', 'Super-Socializer'), home_url(), 'http://opensharecount.com' ) ?></span>
+							<span class="the_champ_help_content" style="display:block"><?php echo sprintf( __( 'For this to work, you have to sign up and register your website url %s at <a href="%s" target="_blank">their website</a>', 'Super-Socializer'), esc_url(home_url()), 'http://opensharecount.com' ) ?></span>
 							</td>
 						</tr>
 

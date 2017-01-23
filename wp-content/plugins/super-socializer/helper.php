@@ -3,7 +3,7 @@
  * Display notification message when plugin options are saved
  */
 function the_champ_settings_saved_notification(){
-	if( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == 'true' ) {
+	if(isset($_GET['settings-updated']) && sanitize_text_field($_GET['settings-updated']) == 'true'){
 		return '<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible below-h2"> 
 <p><strong>' . __('Settings saved', 'Super-Socializer') . '</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">' . __('Dismiss this notice', 'Super-Socializer') . '</span></button></div>';
 	}
@@ -153,7 +153,7 @@ add_action('admin_init', 'the_champ_options_init');
  */	
 function the_champ_admin_scripts(){
 	?>
-	<script>var theChampWebsiteUrl = '<?php echo home_url() ?>', theChampHelpBubbleTitle = "<?php echo __('Click to show help', 'Super-Socializer') ?>", theChampHelpBubbleCollapseTitle = "<?php echo __('Click to hide help', 'Super-Socializer') ?>" </script>
+	<script>var theChampWebsiteUrl = '<?php echo esc_url(home_url()) ?>', theChampHelpBubbleTitle = "<?php echo __('Click to show help', 'Super-Socializer') ?>", theChampHelpBubbleCollapseTitle = "<?php echo __('Click to hide help', 'Super-Socializer') ?>" </script>
 	<?php
 	wp_enqueue_script('the_champ_admin_script', plugins_url('js/admin/admin.js', __FILE__), array('jquery', 'jquery-ui-tabs'), THE_CHAMP_SS_VERSION);
 }
@@ -267,7 +267,7 @@ function the_champ_ajax_response($response){
 function the_champ_notify(){
 	if(isset($_GET['message'])){
 		?>
-		<div><?php echo trim(esc_attr($_GET['message'])) ?></div>
+		<div><?php echo sanitize_text_field($_GET['message']) ?></div>
 		<?php
 	}
 	die;
@@ -490,7 +490,7 @@ function the_champ_account_linking(){
 		<?php
 		// general (required) scripts
 		wp_enqueue_script('the_champ_ss_general_scripts', plugins_url('js/front/social_login/general.js', __FILE__), false, THE_CHAMP_SS_VERSION);
-		$websiteUrl = home_url();
+		$websiteUrl = esc_url(home_url());
 		$twitterRedirect = urlencode(the_champ_get_valid_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . html_entity_decode(esc_url(remove_query_arg(array('linked'))))));
 		?>
 		<script> var theChampLinkingRedirection = '<?php echo the_champ_get_http().$_SERVER["HTTP_HOST"] . html_entity_decode(esc_url(remove_query_arg(array( 'linked')))) ?>'; var theChampSiteUrl = '<?php echo $websiteUrl ?>'; var theChampVerified = 0; var theChampAjaxUrl = '<?php echo admin_url() ?>/admin-ajax.php'; var theChampPopupTitle = ''; var theChampEmailPopup = 0; var theChampEmailAjaxUrl = '<?php echo admin_url() ?>/admin-ajax.php'; var theChampEmailPopupTitle = ''; var theChampEmailPopupErrorMsg = ''; var theChampEmailPopupUniqueId = ''; var theChampEmailPopupVerifyMessage = ''; var theChampTwitterRedirect = '<?php echo $twitterRedirect; ?>';</script>
@@ -503,7 +503,7 @@ function the_champ_account_linking(){
 			$regRedirectionUrl = the_champ_get_login_redirection_url('', true);
 			global $theChampSteamLogin;
 			?>
-			<script> var theChampLoadingImgPath = '<?php echo $loadingImagePath ?>'; var theChampAjaxUrl = '<?php echo $theChampAjaxUrl ?>'; var theChampRedirectionUrl = '<?php echo $redirectionUrl ?>'; var theChampRegRedirectionUrl = '<?php echo $regRedirectionUrl ?>', theChampSteamAuthUrl = "<?php echo $theChampSteamLogin ? $theChampSteamLogin->url( home_url() . '?SuperSocializerSteamAuth=' . $twitterRedirect ) : ''; ?>"; </script>
+			<script> var theChampLoadingImgPath = '<?php echo $loadingImagePath ?>'; var theChampAjaxUrl = '<?php echo $theChampAjaxUrl ?>'; var theChampRedirectionUrl = '<?php echo $redirectionUrl ?>'; var theChampRegRedirectionUrl = '<?php echo $regRedirectionUrl ?>', theChampSteamAuthUrl = "<?php echo $theChampSteamLogin ? $theChampSteamLogin->url( esc_url(home_url()) . '?SuperSocializerSteamAuth=' . $twitterRedirect ) : ''; ?>"; </script>
 			<?php
 			$userVerified = false;
 			$ajaxUrl = 'admin-ajax.php';
@@ -551,7 +551,7 @@ function the_champ_account_linking(){
 			<div id="fb-root"></div>
 			<script>
 			var theChampFBKey = '<?php echo (isset($theChampLoginOptions["fb_key"]) && $theChampLoginOptions["fb_key"] != "") ? $theChampLoginOptions["fb_key"] : "" ?>'; var theChampFBLang = '<?php echo (isset($theChampFacebookOptions["comment_lang"]) && $theChampFacebookOptions["comment_lang"] != '') ? $theChampFacebookOptions["comment_lang"] : "en_US" ?>';
-			var theChampFacebookScope = 'email', theChampFbIosLogin = <?php echo is_user_logged_in() && isset($_GET['code']) && esc_attr($_GET['code']) != '' ? 1 : 0; ?>;
+			var theChampFacebookScope = 'email', theChampFbIosLogin = <?php echo is_user_logged_in() && isset($_GET['code']) && trim($_GET['code']) != '' ? 1 : 0; ?>;
 			</script>
 			<?php
 			wp_enqueue_script('the_champ_fb_sdk', plugins_url('js/front/facebook/sdk.js', __FILE__), false, THE_CHAMP_SS_VERSION);
@@ -569,11 +569,11 @@ function the_champ_account_linking(){
                     <table class="form-table editcomment superSocializerTable">
                         <tbody>';
                         if(isset($_GET['linked'])){
-                        	if($_GET['linked'] == 1){
+                        	if(intval($_GET['linked']) == 1){
 	                        	$html .= '<tr>
 	                        		<td colspan="2" style="color: green">' . __('Account linked successfully', 'Super-Socializer') . '</td>
 	                        	</tr>';
-                        	}elseif($_GET['linked'] == 0){
+                        	}elseif(intval($_GET['linked']) == 0){
 	                        	$html .= '<tr>
 	                        		<td colspan="2" style="color: red">' . __('Account already exists or linked', 'Super-Socializer') . '</td>
 	                        	</tr>';
@@ -674,7 +674,7 @@ function the_champ_unlink(){
 		$linkedAccounts = get_user_meta($user_ID, 'thechamp_linked_accounts', true);
 		if($linkedAccounts){
 			$linkedAccounts = maybe_unserialize($linkedAccounts);
-			unset($linkedAccounts[$_POST['provider']]);
+			unset($linkedAccounts[sanitize_text_field($_POST['provider'])]);
 			update_user_meta($user_ID, 'thechamp_linked_accounts', maybe_serialize($linkedAccounts));
 			the_champ_ajax_response(array('status' => 1, 'message' => ''));
 		}
@@ -830,6 +830,9 @@ function the_champ_save_sharing_meta($postId){
 	}
     if ( isset( $_POST['_the_champ_meta'] ) ) {
 		$newData = $_POST['_the_champ_meta'];
+		foreach($newData as $k => $v){
+			$newData[$k] = intval($v);
+		}
 	}else{
 		$newData = array( 'sharing' => 0, 'vertical_sharing' => 0, 'counter' => 0, 'vertical_counter' => 0, 'fb_comments' => 0 );
 	}
@@ -865,18 +868,18 @@ function the_champ_social_avatar_options(){
 	global $user_ID, $theChampLoginOptions;
 	if(isset($theChampLoginOptions['enable']) && isset($theChampLoginOptions['avatar']) && isset($theChampLoginOptions['avatar_options'])){
 		if(isset($_POST['ss_dontupdate_avatar'])){
-			$dontUpdateAvatar = $_POST['ss_dontupdate_avatar'];
-			update_user_meta( $user_ID, 'thechamp_dontupdate_avatar', $dontUpdateAvatar );
+			$dontUpdateAvatar = intval($_POST['ss_dontupdate_avatar']);
+			update_user_meta($user_ID, 'thechamp_dontupdate_avatar', $dontUpdateAvatar);
 		}else{
 			$dontUpdateAvatar = get_user_meta($user_ID, 'thechamp_dontupdate_avatar', true);
 		}
-		if(isset($_POST['ss_small_avatar'])){
-			$updatedSmallAvatar = esc_url( str_replace( 'http://', '//', $_POST['ss_small_avatar']) );
-			update_user_meta( $user_ID, 'thechamp_avatar', $updatedSmallAvatar );
+		if(isset($_POST['ss_small_avatar']) && heateor_ss_validate_url($_POST['ss_small_avatar']) !== false){
+			$updatedSmallAvatar = str_replace('http://', '//', esc_url(trim($_POST['ss_small_avatar'])));
+			update_user_meta($user_ID, 'thechamp_avatar', $updatedSmallAvatar);
 		}
-		if(isset($_POST['ss_large_avatar'])){
-			$updatedLargeAvatar = esc_url( str_replace( 'http://', '//', $_POST['ss_large_avatar']) );
-			update_user_meta( $user_ID, 'thechamp_large_avatar', $updatedLargeAvatar );
+		if(isset($_POST['ss_large_avatar']) && heateor_ss_validate_url($_POST['ss_large_avatar']) !== false){
+			$updatedLargeAvatar = str_replace('http://', '//', esc_url(trim($_POST['ss_large_avatar'])));
+			update_user_meta($user_ID, 'thechamp_large_avatar', $updatedLargeAvatar);
 		}
 		?>
 		<div class="profile" style="margin-bottom:20px">
@@ -938,11 +941,11 @@ $heateorSsLoginAttempt = 0;
 /**
  * Stop unverified users from logging in.
  */
-function heateor_ss_filter_login( $user, $username, $password ) {
-	$tempUser = get_user_by( 'login', $username );
-	if ( isset( $tempUser->data->ID ) ) {
+function heateor_ss_filter_login($user, $username, $password){
+	$tempUser = get_user_by('login', $username);
+	if(isset($tempUser->data->ID)){
 		$id = $tempUser->data->ID;
-		if ( $id != 1 && get_user_meta( $id, 'thechamp_key', true ) != '' ) {
+		if($id != 1 && get_user_meta($id, 'thechamp_key', true) != ''){
 			global $heateorSsLoginAttempt;
 			$heateorSsLoginAttempt = 1;
 			return null;
@@ -950,17 +953,24 @@ function heateor_ss_filter_login( $user, $username, $password ) {
 	}
 	return $user;
 }
-add_filter( 'authenticate', 'heateor_ss_filter_login', 40, 3 );
+add_filter('authenticate', 'heateor_ss_filter_login', 40, 3);
 
 /**
  * Show message, if an unverified user logs in via login form
  */
-function heateor_ss_login_error_message( $error ){
+function heateor_ss_login_error_message($error){
 	global $heateorSsLoginAttempt;
 	//check if unverified user has attempted to login
-	if ( $heateorSsLoginAttempt == 1 ) {
-		$error = __( 'Please verify your email address to login.', 'Super-Socializer' );
+	if($heateorSsLoginAttempt == 1){
+		$error = __('Please verify your email address to login.', 'Super-Socializer');
 	}
 	return $error;
 }
-add_filter( 'login_errors', 'heateor_ss_login_error_message' );
+add_filter('login_errors', 'heateor_ss_login_error_message');
+
+/**
+ * Check if url is in valid format
+ */
+function heateor_ss_validate_url($url){
+	return filter_var(trim($url), FILTER_VALIDATE_URL);
+}

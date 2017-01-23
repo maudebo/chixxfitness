@@ -425,7 +425,7 @@ function the_champ_render_sharing($content){
 						$counterPostUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 					}
 				}elseif($theChampCounterOptions['horizontal_target_url'] == 'home'){
-					$counterPostUrl = home_url();
+					$counterPostUrl = esc_url(home_url());
 					$postId = 0;
 				}elseif($theChampCounterOptions['horizontal_target_url'] == 'custom'){
 					$counterPostUrl = isset($theChampCounterOptions['horizontal_target_url_custom']) ? trim($theChampCounterOptions['horizontal_target_url_custom']) : get_permalink($post->ID);
@@ -457,7 +457,7 @@ function the_champ_render_sharing($content){
 					$sharingTitleStyle = 'style="font-weight: bold;list-style: none;position: relative;left: 50%;"';
 				}
 			}
-			$horizontalDiv = "<div style='clear: both'></div><div ". $sharingContainerStyle ." class='the_champ_counter_container the_champ_horizontal_counter'><div ". $sharingTitleStyle .">".ucfirst($theChampCounterOptions['title'])."</div>".$sharingDiv."</div><div style='clear: both'></div>";
+			$horizontalDiv = "<div style='clear: both'></div><div ". $sharingContainerStyle ." class='the_champ_counter_container the_champ_horizontal_counter'><div class='the_champ_counter_title' ". $sharingTitleStyle .">".ucfirst($theChampCounterOptions['title'])."</div>".$sharingDiv."</div><div style='clear: both'></div>";
 			if($counterBpActivity){
 				echo $horizontalDiv;
 			}
@@ -503,7 +503,7 @@ function the_champ_render_sharing($content){
 						$counterPostUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 					}
 				}elseif($theChampCounterOptions['vertical_target_url'] == 'home'){
-					$counterPostUrl = home_url();
+					$counterPostUrl = esc_url(home_url());
 					$postId = 0;
 				}elseif($theChampCounterOptions['vertical_target_url'] == 'custom'){
 					$counterPostUrl = isset($theChampCounterOptions['vertical_target_url_custom']) ? trim($theChampCounterOptions['vertical_target_url_custom']) : get_permalink($post->ID);
@@ -541,7 +541,7 @@ function the_champ_render_sharing($content){
 						}
 						if($$var == 0){
 							if(isset($theChampCounterOptions['vertical_target_url']) && $theChampCounterOptions['vertical_target_url'] == 'default'){
-								$counterPostUrl = home_url();
+								$counterPostUrl = esc_url(home_url());
 								$counterUrl = $counterPostUrl;
 								if(isset($theChampCounterOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
 									$counterUrl = wp_get_shortlink();
@@ -589,7 +589,7 @@ function the_champ_render_sharing($content){
 						$postUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 					}
 				}elseif($theChampSharingOptions['horizontal_target_url'] == 'home'){
-					$postUrl = home_url();
+					$postUrl = esc_url(home_url());
 					$postId = 0;
 				}elseif($theChampSharingOptions['horizontal_target_url'] == 'custom'){
 					$postUrl = isset($theChampSharingOptions['horizontal_target_url_custom']) ? trim($theChampSharingOptions['horizontal_target_url_custom']) : get_permalink($post->ID);
@@ -668,7 +668,7 @@ function the_champ_render_sharing($content){
 						$postUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 					}
 				}elseif($theChampSharingOptions['vertical_target_url'] == 'home'){
-					$postUrl = home_url();
+					$postUrl = esc_url(home_url());
 					$postId = 0;
 				}elseif($theChampSharingOptions['vertical_target_url'] == 'custom'){
 					$postUrl = isset($theChampSharingOptions['vertical_target_url_custom']) ? trim($theChampSharingOptions['vertical_target_url_custom']) : get_permalink($post->ID);
@@ -707,7 +707,7 @@ function the_champ_render_sharing($content){
 						}
 						if($$var == 0){
 							if(isset($theChampSharingOptions['vertical_target_url']) && $theChampSharingOptions['vertical_target_url'] == 'default'){
-								$postUrl = home_url();
+								$postUrl = esc_url(home_url());
 								$sharingUrl = $postUrl;
 								if(isset($theChampSharingOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
 									$sharingUrl = wp_get_shortlink();
@@ -782,10 +782,12 @@ add_filter('get_the_excerpt', 'the_champ_remove_render_sharing', 9);
  * Get sharing count for providers
  */
 function the_champ_sharing_count(){
-	if(isset($_GET['urls']) && count($_GET['urls']) > 0){
+	if(isset($_GET['urls']) && is_array($_GET['urls']) && count($_GET['urls']) > 0){
 		$targetUrls = array_unique($_GET['urls']);
 		foreach($targetUrls as $k => $v){
-			$targetUrls[$k] = esc_attr($v);
+			if(heateor_ss_validate_url($v) !== false){
+				$targetUrls[$k] = trim($v);
+			}
 		}
 	}else{
 		the_champ_ajax_response(array('status' => 0, 'message' => __('Invalid request')));
@@ -1004,7 +1006,7 @@ function the_champ_save_facebook_shares(){
 	if(isset($_GET['share_counts']) && is_array($_GET['share_counts']) && count($_GET['share_counts']) > 0){
 		$targetUrls = $_GET['share_counts'];
 		foreach($targetUrls as $k => $v){
-			$targetUrls[$k] = esc_attr(trim($v));
+			$targetUrls[$k] = intval($v);
 		}
 	}else{
 		the_champ_ajax_response(array('status' => 0, 'message' => __('Invalid request')));

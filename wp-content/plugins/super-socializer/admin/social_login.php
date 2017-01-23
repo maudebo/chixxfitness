@@ -157,7 +157,7 @@
 							<br/>
 							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Site URL</strong> option at the link mentioned', 'Super-Socializer'); ?></span>
 							<br/>
-							<strong style="color: #14ACDF"><?php echo home_url(); ?></strong>
+							<strong style="color: #14ACDF"><?php echo esc_url(home_url()); ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -179,7 +179,7 @@
 							<br/>
 							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Website</strong> and <strong>Callback URL</strong> options at the link mentioned', 'Super-Socializer'); ?></span>
 							<br/>
-							<strong style="color: #14ACDF"><?php echo home_url(); ?></strong>
+							<strong style="color: #14ACDF"><?php echo esc_url(home_url()); ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -201,7 +201,7 @@
 							<br/>
 							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Website</strong> and <strong>Callback URL</strong> options at the link mentioned', 'Super-Socializer'); ?></span>
 							<br/>
-							<strong style="color: #14ACDF"><?php echo home_url(); ?></strong>
+							<strong style="color: #14ACDF"><?php echo esc_url(home_url()); ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -223,7 +223,7 @@
 							<br/>
 							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Website URL</strong> option at the link mentioned', 'Super-Socializer'); ?></span>
 							<br/>
-							<strong style="color: #14ACDF"><?php echo home_url(); ?></strong>
+							<strong style="color: #14ACDF"><?php echo esc_url(home_url()); ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -267,7 +267,7 @@
 							<br/>
 							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Site address</strong> option at the link mentioned', 'Super-Socializer'); ?></span>
 							<br/>
-							<strong style="color: #14ACDF"><?php echo home_url(); ?></strong>
+							<strong style="color: #14ACDF"><?php echo esc_url(home_url()); ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -289,7 +289,7 @@
 							<br/>
 							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Website URL</strong> option at the link mentioned', 'Super-Socializer'); ?></span>
 							<br/>
-							<strong style="color: #14ACDF"><?php echo home_url(); ?></strong>
+							<strong style="color: #14ACDF"><?php echo esc_url(home_url()); ?></strong>
 							</div>
 							</td>
 						</tr>
@@ -355,7 +355,7 @@
 							<br/>
 							<span style="color: #14ACDF"><?php _e('Paste following url in <strong>Redirect URI</strong> option at the link mentioned', 'Super-Socializer'); ?></span>
 							<br/>
-							<strong style="color: #14ACDF"><?php echo home_url() . '/?SuperSocializerAuth=Twitch'; ?></strong>
+							<strong style="color: #14ACDF"><?php echo esc_url(home_url()) . '/?SuperSocializerAuth=Twitch'; ?></strong>
 							</div>
 							</td>
 						</tr>

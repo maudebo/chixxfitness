@@ -60,9 +60,10 @@
                     <nav class="navbar navbar-default main-navigation hide-on-large-only" id="site-navigation"
                          role="navigation">
                         <div class="drawer-controls" style="margin-top:1rem;">
-                            <a href="#navigationMenu" data-toggle="drawer" href="#navigationMenu"
+                            <a href="#navigationMenu" data-toggle="drawer"
                                aria-foldedopen="false" aria-controls="navigationMenu" class="btn btn-primary btn-sm">menu</a>
                         </div>
+<!--                        class="" data-toggle="collapse" -->
                         <div id="navigationMenu" class="drawer drawer-left dw-xs-10 dw-sm-6 dw-md-4 fold"
                              aria-labelledby="navigationMenu">
 
@@ -77,6 +78,7 @@
                                     'theme_location' => 'mobile',
                                     'menu_class' => '',
                                     'ul_class' => 'drawer-dropdown-menu',
+                                    'li_class' => 'collapse',
                                     'depth' => 3
                                 ))
                                 ?>

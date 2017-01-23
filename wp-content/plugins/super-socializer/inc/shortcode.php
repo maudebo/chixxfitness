@@ -31,7 +31,7 @@ function the_champ_sharing_shortcode($params){
 			$targetUrl = $url;
 			$postId = 0;
 		}elseif(is_front_page()){
-			$targetUrl = home_url();
+			$targetUrl = esc_url(home_url());
 			$postId = 0;
 		}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 			$targetUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
@@ -74,7 +74,7 @@ function the_champ_sharing_shortcode($params){
 		}
 		$html .= '>';
 		if( $type == 'horizontal' && $title != '' ) {
-			$html .= '<div style="font-weight:bold">' . ucfirst( $title ) . '</div>';
+			$html .= '<div style="font-weight:bold" class="the_champ_sharing_title">' . ucfirst( $title ) . '</div>';
 		}
 		$html .= the_champ_prepare_sharing_html($shortUrl == '' ? $targetUrl : $shortUrl, $type, $count, $total_shares == 'ON' ? 1 : 0, $shareCountTransientId);
 		$html .= '</div>';
@@ -121,7 +121,7 @@ function the_champ_counter_shortcode($params){
 			$targetUrl = $url;
 			$postId = 0;
 		}elseif(is_front_page()){
-			$targetUrl = home_url();
+			$targetUrl = esc_url(home_url());
 			$postId = 0;
 		}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 			$targetUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
@@ -155,7 +155,7 @@ function the_champ_counter_shortcode($params){
 		}
 		$html .= '>';
 		if( $type == 'horizontal' && $title != '' ) {
-			$html .= '<div style="font-weight:bold">' . ucfirst( $title ) . '</div>';
+			$html .= '<div style="font-weight:bold" class="the_champ_counter_title">' . ucfirst( $title ) . '</div>';
 		}
 		$counterUrl = $targetUrl;
 		if(isset($theChampCounterOptions['use_shortlinks']) && function_exists('wp_get_shortlink')){
@@ -192,7 +192,7 @@ function the_champ_login_shortcode($params){
 			$html .= "</div><div style='float:left; margin-left:10px'>";
 			$html .= str_replace('-', ' ', $userInfo -> user_login);
 			//do_action('the_champ_login_widget_hook', $userInfo -> user_login);
-			$html .= '<br/><a href="' . wp_logout_url(home_url()) . '">' .__('Log Out', 'Super-Socializer') . '</a></div></div>';
+			$html .= '<br/><a href="' . wp_logout_url(esc_url(home_url())) . '">' .__('Log Out', 'Super-Socializer') . '</a></div></div>';
 		}else{
 			$html = '<div ';
 			// style 
@@ -204,7 +204,7 @@ function the_champ_login_shortcode($params){
 			}
 			$html .= '>';
 			if( !is_user_logged_in() && $title != '' ) {
-				$html .= '<div style="font-weight:bold">' . ucfirst( $title ) . '</div>';
+				$html .= '<div style="font-weight:bold" class="the_champ_social_login_title">' . ucfirst( $title ) . '</div>';
 			}
 			$html .= the_champ_login_button(true);
 			$html .= '</div><div style="clear:both"></div>';

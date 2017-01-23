@@ -12,7 +12,6 @@ body.has-drawer {
 }
 .has-inner-drawer {
   position: relative;
-  overflow: hidden;
 }
 .drawer {
   display: block;
